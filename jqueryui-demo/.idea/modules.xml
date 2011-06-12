@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Jqueryui-demo.iml" filepath="$PROJECT_DIR$/Jqueryui-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../jqueryui/jqueryui.iml" filepath="$PROJECT_DIR$/../jqueryui/jqueryui.iml" />
+    </modules>
+  </component>
+</project>
+

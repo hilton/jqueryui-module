@@ -1,0 +1,5 @@
+*.iml
+jqueryui-demo/lib
+jqueryui-demo/tmp
+.DS_Store
+jqueryui/.idea
