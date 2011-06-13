@@ -3,10 +3,16 @@
 
 <h1>jQuery UI module demo</h1>
 
-<section>
+<ul>
+<li><a href="#accordion">Accordion</a></li>
+<li><a href="#autocomplete">Autocomplete</a></li>
+<li><a href="#tabs">Tabs</a></li>
+</ul>
+
+<section id="accordion">
 	<h2>accordion - lazy loading</h2>
 
-	<p>Use an accordion to define content sections and lazily load the content.</p>
+	<p>Use an <a href="http://jqueryui.com/demos/accordion/">accordion</a> to define content sections and lazily load the content when the section is opened.</p>
 
 	<div class="demo">
 		<div class="accordion" data-url="@{jqueryui.Accordion.region('')}">
@@ -22,27 +28,29 @@
 
 	<p>The <code>accordion.js</code> JavaScript applies the jQuery UI accordion plug-in to a DIV that contains headings,
 	using the <code>data-url</code> attribute value for the server-side data source. Note the empty action method
-	parameter value, which generates the query string part of the URL.</p>
+	parameter value, which generates the query string part of the URL. Also, it would be straightforward to modify 
+	<code>accordion.js</code> to use a <code>data-url</code> attribute on each <code>h3</code> element to specify 
+	the URL for each section.</p>
 
 	<pre><code>&lt;div class="accordion" data-url="&#64;{jqueryui.Accordion.region('')}"&gt;
-	&lt;h3&gt;&lt;a href="#"&gt;Africa&lt;/a&gt;&lt;/h3&gt;
-	&lt;h3&gt;&lt;a href="#"&gt;America&lt;/a&gt;&lt;/h3&gt;
-	&lt;h3&gt;&lt;a href="#"&gt;Asia&lt;/a&gt;&lt;/h3&gt;
-	&lt;h3&gt;&lt;a href="#"&gt;Australia&lt;/a&gt;&lt;/h3&gt;
-	&lt;h3&gt;&lt;a href="#"&gt;Europe&lt;/a&gt;&lt;/h3&gt;
+   &lt;h3&gt;&lt;a href="#"&gt;Africa&lt;/a&gt;&lt;/h3&gt;
+   &lt;h3&gt;&lt;a href="#"&gt;America&lt;/a&gt;&lt;/h3&gt;
+   &lt;h3&gt;&lt;a href="#"&gt;Asia&lt;/a&gt;&lt;/h3&gt;
+   &lt;h3&gt;&lt;a href="#"&gt;Australia&lt;/a&gt;&lt;/h3&gt;
+   &lt;h3&gt;&lt;a href="#"&gt;Europe&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;</code></pre>
 
 	<h3>Server</h3>
 
-	<p>The <code>jqueryui.Accordion(String header)</code> action renders an HTML content section for the clicked header.
+	<p>The <code>jqueryui.Accordion.region(String header)</code> action renders an HTML content section for the clicked header.
 	</p>
 
 </section>
 
-<section>
+<section id="autocomplete">
 	<h2>autocomplete - label only</h2>
 
-	<p>Use a label-only autocomplete to suggest text values for an input field.</p>
+	<p>Use a label-only <a href="http://jqueryui.com/demos/autocomplete/">autocomplete</a> widget to suggest text values for an input field.</p>
 
 	<p class="demo">
 	<input name="location" class="autocomplete" data-url="@{jqueryui.Autocomplete.label()}"> Type to populate the list,
@@ -87,3 +95,40 @@
 	that match the user-entered <code>term</code> parameter.</p>
 </section>
 
+<section id="tabs">
+	<h2>tabs - lazy loading</h2>
+
+	<p>Use <a href="http://jqueryui.com/demos/tabs/">tabs</a> to define content sections and lazily load the content when the tab is selected, in the same way as for the accordion.</p>
+
+	<div class="demo">
+	<div class="tabs">
+     <ul>
+         <li><a href="@{jqueryui.Accordion.region('Africa')}"><span>Africa</span></a></li>
+         <li><a href="@{jqueryui.Accordion.region('America')}"><span>America</span></a></li>
+         <li><a href="@{jqueryui.Accordion.region('Asia')}"><span>Asia</span></a></li>
+         <li><a href="@{jqueryui.Accordion.region('Australia')}"><span>Australia</span></a></li>
+         <li><a href="@{jqueryui.Accordion.region('Europe')}"><span>Europe</span></a></li>
+     </ul>
+	</div>
+	</div>
+
+	<h3>Client</h3>
+
+	<p>The <code>tabs.js</code> JavaScript applies the jQuery UI tabs plug-in to a list of links to the content. Note that this JavaScript has very little to do, because the tabs plug-in supports Ajax loading out of the box.</p>
+
+	<pre><code>&lt;div class="tabs"&gt;
+&lt;ul&gt;
+   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Africa')}"&gt;&lt;span&gt;Africa&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('America')}"&gt;&lt;span&gt;America&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Asia')}"&gt;&lt;span&gt;Asia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Australia')}"&gt;&lt;span&gt;Australia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Europe')}"&gt;&lt;span&gt;Europe&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+	<h3>Server</h3>
+
+	<p>Tabs use the same <code>jqueryui.Accordion.region(String header)</code> action as the accordion.</p>
+
+</section>

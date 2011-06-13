@@ -1,7 +1,7 @@
 $(function() {
 
 	/*
-	 *
+	 * Accordion that loads content from the Ajax source specified by the data-url attribute and heading names.
 	 */
 	$('div.accordion h3').each( function() {
 		// Add a DIV for each section's content.
