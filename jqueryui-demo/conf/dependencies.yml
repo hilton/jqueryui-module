@@ -1,5 +1,13 @@
 # Application dependencies
 
 require:
-    - play
-    - play -> jqueryui 0.1
+   - play
+   - local -> jqueryui 0.1
+
+# Modules in the same directory as the application.
+repositories:
+   - Custom_Modules:
+      type: local
+      artifact: "${application.path}/../[module]-[revision]"
+      contains:
+         - local -> *
