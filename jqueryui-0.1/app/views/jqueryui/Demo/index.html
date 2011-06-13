@@ -1,11 +1,27 @@
-#{extends 'demo-layout.html' /}
-#{set title:'Demo' /}
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQueryUI module demo</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/playmanual/manual.css'}">
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/jquery-ui-1.8.13.custom.css'}">
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/demo.css'}">
+<script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/javascripts/jquery-ui-1.8.13.custom.min.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/javascripts/accordion.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/javascripts/autocomplete.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/javascripts/tabs.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/javascripts/datepicker.js'}" type="text/javascript" charset="utf-8"></script>
+</head>
+<body data-dateformat="${play.configuration['date.format']}">
+<div class="wrapper">
 
 <h1>jQuery UI module demo</h1>
 
 <ul>
 <li><a href="#accordion">Accordion</a></li>
 <li><a href="#autocomplete">Autocomplete</a></li>
+<li><a href="#datepicker">Date picker</a></li>
 <li><a href="#tabs">Tabs</a></li>
 </ul>
 
@@ -68,6 +84,7 @@
 	the user-entered <code>term</code> parameter.</p>
 </section>
 
+
 <section>
 	<h2>autocomplete - label and value</h2>
 
@@ -94,6 +111,29 @@
 	<p>The <code>jqueryui.Autocomplete.value(String term)</code> action renders a JSON-encoded list of label/value pairs
 	that match the user-entered <code>term</code> parameter.</p>
 </section>
+
+
+<section id="datepicker">
+	<h2>Date picker - server-side configuration</h2>
+
+	<p>Although there is no server-side action for the date picker widget, it does require integration with the Play configuration.</p>
+
+	<div class="demo">	
+	<p>Date: <input class="date"></p>
+	</div>
+
+	<h3>Client</h3>
+
+	<p>The <code>datepicker.js</code> JavaScript applies the jQuery UI date picker plug-in to the input element. The date format is specified in the <code>body</code> tag’s <code>data-dateformat</code> attribute and converted from Java to jQuery UI format by the JavaScript.</p>
+
+	<pre><code>&lt;body data-dateformat="&#36;{play.configuration['date.format']}"&gt;
+…	
+&lt;input class="date"&gt;</code></pre>
+
+	<p>TODO: language</p>
+	
+</section>
+
 
 <section id="tabs">
 	<h2>tabs - lazy loading</h2>
@@ -132,3 +172,7 @@
 	<p>Tabs use the same <code>jqueryui.Accordion.region(String header)</code> action as the accordion.</p>
 
 </section>
+
+</div>
+</body>
+</html>
