@@ -1,9 +1,12 @@
 # jQuery UI module routes
 # import these routes in the main app as :
-# *   /                       module:jqueryui
+# *   /				module:jqueryui
 
-GET   /                       jqueryui.Demo.index
-GET   /autocompleteLabel		jqueryui.Demo.autocompleteLabel
-GET   /autocompleteValue		jqueryui.Demo.autocompleteLabelAndValue
+GET   /           jqueryui.Demo.index
+GET   /label		jqueryui.Autocomplete.label
+GET   /value		jqueryui.Autocomplete.value
 
-GET   /public/                staticDir:public
+GET   /region		jqueryui.Accordion.region
+#GET   /regions		jqueryui.Accordion.regionsTest
+
+GET   /public/		staticDir:public

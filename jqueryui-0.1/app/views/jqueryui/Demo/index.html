@@ -1,34 +1,74 @@
-#{extends 'jqueryui-demo.html' /}#{set title:'Demo' /}
+#{extends 'demo-layout.html' /}
+#{set title:'Demo' /}
 
 <h1>jQuery UI module demo</h1>
 
 <section>
-	<h2>autocomplete - label only</h2>
+	<h2>accordion - lazy loading</h2>
 
-	<p class="demo">
-	<input name="location" class="autocomplete" data-url="@{jqueryui.Demo.autocompleteLabel()}"> Type to populate the
-	list, and select a label from the list. </p>
+	<p>Use an accordion to define content sections and lazily load the content.</p>
+
+	<div class="demo">
+		<div class="accordion" data-url="@{jqueryui.Accordion.region('')}">
+			<h3><a href="#">Africa</a></h3>
+			<h3><a href="#">America</a></h3>
+			<h3><a href="#">Asia</a></h3>
+			<h3><a href="#">Australia</a></h3>
+			<h3><a href="#">Europe</a></h3>
+		</div>
+	</div>
 
 	<h3>Client</h3>
 
-	<p>The <code>jqueryui-client.js</code> JavaScript applies the jQuery UI autocomplete plugin to the following label,
-	usign the <code>data-url</code> attribute value for the server-side data source.</p>
-	<pre><code>&lt;input name="location" class="autocomplete"
-		data-url="&#64;{jqueryui.Demo.autocompleteLabel()}"&gt;</code></pre>
+	<p>The <code>accordion.js</code> JavaScript applies the jQuery UI accordion plug-in to a DIV that contains headings,
+	using the <code>data-url</code> attribute value for the server-side data source. Note the empty action method
+	parameter value, which generates the query string part of the URL.</p>
+
+	<pre><code>&lt;div class="accordion" data-url="&#64;{jqueryui.Accordion.region('')}"&gt;
+	&lt;h3&gt;&lt;a href="#"&gt;Africa&lt;/a&gt;&lt;/h3&gt;
+	&lt;h3&gt;&lt;a href="#"&gt;America&lt;/a&gt;&lt;/h3&gt;
+	&lt;h3&gt;&lt;a href="#"&gt;Asia&lt;/a&gt;&lt;/h3&gt;
+	&lt;h3&gt;&lt;a href="#"&gt;Australia&lt;/a&gt;&lt;/h3&gt;
+	&lt;h3&gt;&lt;a href="#"&gt;Europe&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;</code></pre>
 
 	<h3>Server</h3>
 
-	<p>The <code>jqueryui.Demo.autocompleteLabel(String term)</code> action renders a JSON-encoded list of strings that
-	match the user-entered <code>term</code> parameter.</p>
+	<p>The <code>jqueryui.Accordion(String header)</code> action renders an HTML content section for the clicked header.
+	</p>
+
+</section>
+
+<section>
+	<h2>autocomplete - label only</h2>
+
+	<p>Use a label-only autocomplete to suggest text values for an input field.</p>
+
+	<p class="demo">
+	<input name="location" class="autocomplete" data-url="@{jqueryui.Autocomplete.label()}"> Type to populate the list,
+	and select a label from the list. </p>
+
+	<h3>Client</h3>
+
+	<p>The <code>autocomplete.js</code> JavaScript applies the jQuery UI autocomplete plug-in to the following label,
+	using the <code>data-url</code> attribute value for the server-side data source.</p>
+	<pre><code>&lt;input name="location" class="autocomplete" data-url="&#64;{jqueryui.Autocomplete.label()}"&gt;</code></pre>
+
+	<h3>Server</h3>
+
+	<p>The <code>jqueryui.Autocomplete.label(String term)</code> action renders a JSON-encoded list of strings that match
+	the user-entered <code>term</code> parameter.</p>
 </section>
 
 <section>
 	<h2>autocomplete - label and value</h2>
 
+	<p>Use a label/value autocomplete to suggest input options that have a separate label and value.</p>
+
 	<form class="demo">
 		<p>
-		<input name="location.id" class="autocomplete-relation" data-url="@{jqueryui.Demo.autocompleteLabelAndValue()}">
-		Type to populate the list, then select the value for a particular label. </p>
+		<input name="location.id" class="autocomplete-value" data-url="@{jqueryui.Autocomplete.value()}"> Type to populate
+		the list, then select the value for a particular label. </p>
 
 		<p>
 		<button type="submit">Submit</button>
@@ -38,12 +78,12 @@
 
 	<h3>Client</h3>
 
-	<p>This client implementation adds more JavaScript in <code>jqueryui-client.js</code> to handle label/value pairs,
-	with an additional hidden field in the form.</p>
+	<p>This client implementation uses more JavaScript in <code>autocomplete.js</code> to handle label/value pairs, with
+	an additional hidden field in the form.</p>
 
 	<h3>Server</h3>
 
-	<p>The <code>jqueryui.Demo.autocompleteLabelAndValue(String term)</code> action renders a JSON-encoded list of
-	label/value pairs that match the user-entered <code>term</code> parameter.</p>
+	<p>The <code>jqueryui.Autocomplete.value(String term)</code> action renders a JSON-encoded list of label/value pairs
+	that match the user-entered <code>term</code> parameter.</p>
 </section>
 
