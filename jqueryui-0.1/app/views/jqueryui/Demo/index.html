@@ -1,177 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="${lang}">
 <head>
-<title>jQueryUI module demo</title>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/playmanual/manual.css'}">
-<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/jquery-ui-1.8.13.custom.css'}">
-<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/demo.css'}">
-<script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/javascripts/jquery-ui-1.8.13.custom.min.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/javascripts/accordion.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/javascripts/autocomplete.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/javascripts/tabs.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/javascripts/datepicker.js'}" type="text/javascript" charset="utf-8"></script>
+	<title>jQueryUI module demo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/playmanual/manual.css'}">
+	<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/jquery-ui-1.8.13.custom.css'}">
+	<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/demo.css'}">
+	<script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+	<script src="@{'/public/javascripts/jquery-ui-1.8.13.custom.min.js'}" type="text/javascript" charset="utf-8"></script>
+	<script src="@{'/public/javascripts/accordion.js'}" type="text/javascript" charset="utf-8"></script>
+	<script src="@{'/public/javascripts/autocomplete.js'}" type="text/javascript" charset="utf-8"></script>
+	<script src="@{'/public/javascripts/tabs.js'}" type="text/javascript" charset="utf-8"></script>
+	<script src="@{'/public/javascripts/jquery.ui.datepicker-fr.js'}" type="text/javascript" charset="utf-8"></script>
+	<script src="@{'/public/javascripts/jquery.ui.datepicker-nl.js'}" type="text/javascript" charset="utf-8"></script>
+	<script src="@{'/public/javascripts/datepicker.js'}" type="text/javascript" charset="utf-8"></script>
 </head>
 <body data-dateformat="${play.configuration['date.format']}">
 <div class="wrapper">
 
-<h1>jQuery UI module demo</h1>
+	<h1>jQuery UI module demo</h1>
 
-<ul>
-<li><a href="#accordion">Accordion</a></li>
-<li><a href="#autocomplete">Autocomplete</a></li>
-<li><a href="#datepicker">Date picker</a></li>
-<li><a href="#tabs">Tabs</a></li>
-</ul>
+	<ul>
+		<li><a href="#accordion">Accordion</a></li>
+		<li><a href="#autocomplete">Autocomplete</a></li>
+		<li><a href="#datepicker">Date picker</a></li>
+		<li><a href="#tabs">Tabs</a></li>
+	</ul>
 
-<section id="accordion">
-	<h2>accordion - lazy loading</h2>
+	<section id="accordion">
+		<h2>Accordion - lazy loading</h2>
 
-	<p>Use an <a href="http://jqueryui.com/demos/accordion/">accordion</a> to define content sections and lazily load the content when the section is opened.</p>
+		<p>Use an <a href="http://jqueryui.com/demos/accordion/">accordion</a> to define content sections and lazily load the
+			content when the section is opened.</p>
 
-	<div class="demo">
-		<div class="accordion" data-url="@{jqueryui.Accordion.region('')}">
-			<h3><a href="#">Africa</a></h3>
-			<h3><a href="#">America</a></h3>
-			<h3><a href="#">Asia</a></h3>
-			<h3><a href="#">Australia</a></h3>
-			<h3><a href="#">Europe</a></h3>
+		<div class="demo">
+			<div class="accordion" data-url="@{jqueryui.Accordion.region('')}">
+				<h3><a href="#">Africa</a></h3>
+
+				<h3><a href="#">America</a></h3>
+
+				<h3><a href="#">Asia</a></h3>
+
+				<h3><a href="#">Australia</a></h3>
+
+				<h3><a href="#">Europe</a></h3>
+			</div>
 		</div>
-	</div>
 
-	<h3>Client</h3>
+		<h3>Client</h3>
 
-	<p>The <code>accordion.js</code> JavaScript applies the jQuery UI accordion plug-in to a DIV that contains headings,
-	using the <code>data-url</code> attribute value for the server-side data source. Note the empty action method
-	parameter value, which generates the query string part of the URL. Also, it would be straightforward to modify 
-	<code>accordion.js</code> to use a <code>data-url</code> attribute on each <code>h3</code> element to specify 
-	the URL for each section.</p>
+		<p>The <code>accordion.js</code> JavaScript applies the jQuery UI accordion plug-in to a DIV that contains headings,
+			using the <code>data-url</code> attribute value for the server-side data source. Note the empty action method
+			parameter value, which generates the query string part of the URL. Also, it would be straightforward to modify
+			<code>accordion.js</code> to use a <code>data-url</code> attribute on each <code>h3</code> element to specify
+			the URL for each section.</p>
 
 	<pre><code>&lt;div class="accordion" data-url="&#64;{jqueryui.Accordion.region('')}"&gt;
-   &lt;h3&gt;&lt;a href="#"&gt;Africa&lt;/a&gt;&lt;/h3&gt;
-   &lt;h3&gt;&lt;a href="#"&gt;America&lt;/a&gt;&lt;/h3&gt;
-   &lt;h3&gt;&lt;a href="#"&gt;Asia&lt;/a&gt;&lt;/h3&gt;
-   &lt;h3&gt;&lt;a href="#"&gt;Australia&lt;/a&gt;&lt;/h3&gt;
-   &lt;h3&gt;&lt;a href="#"&gt;Europe&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;</code></pre>
+		&lt;h3&gt;&lt;a href="#"&gt;Africa&lt;/a&gt;&lt;/h3&gt;
+		&lt;h3&gt;&lt;a href="#"&gt;America&lt;/a&gt;&lt;/h3&gt;
+		&lt;h3&gt;&lt;a href="#"&gt;Asia&lt;/a&gt;&lt;/h3&gt;
+		&lt;h3&gt;&lt;a href="#"&gt;Australia&lt;/a&gt;&lt;/h3&gt;
+		&lt;h3&gt;&lt;a href="#"&gt;Europe&lt;/a&gt;&lt;/h3&gt;
+		&lt;/div&gt;</code></pre>
 
-	<h3>Server</h3>
+		<h3>Server</h3>
 
-	<p>The <code>jqueryui.Accordion.region(String header)</code> action renders an HTML content section for the clicked header.
-	</p>
-
-</section>
-
-<section id="autocomplete">
-	<h2>autocomplete - label only</h2>
-
-	<p>Use a label-only <a href="http://jqueryui.com/demos/autocomplete/">autocomplete</a> widget to suggest text values for an input field.</p>
-
-	<p class="demo">
-	<input name="location" class="autocomplete" data-url="@{jqueryui.Autocomplete.label()}"> Type to populate the list,
-	and select a label from the list. </p>
-
-	<h3>Client</h3>
-
-	<p>The <code>autocomplete.js</code> JavaScript applies the jQuery UI autocomplete plug-in to the following label,
-	using the <code>data-url</code> attribute value for the server-side data source.</p>
-	<pre><code>&lt;input name="location" class="autocomplete" data-url="&#64;{jqueryui.Autocomplete.label()}"&gt;</code></pre>
-
-	<h3>Server</h3>
-
-	<p>The <code>jqueryui.Autocomplete.label(String term)</code> action renders a JSON-encoded list of strings that match
-	the user-entered <code>term</code> parameter.</p>
-</section>
-
-
-<section>
-	<h2>autocomplete - label and value</h2>
-
-	<p>Use a label/value autocomplete to suggest input options that have a separate label and value.</p>
-
-	<form class="demo">
-		<p>
-		<input name="location.id" class="autocomplete-value" data-url="@{jqueryui.Autocomplete.value()}"> Type to populate
-		the list, then select the value for a particular label. </p>
-
-		<p>
-		<button type="submit">Submit</button>
-		Submit the form to submit the numeric value, but not the label.
+		<p>The <code>jqueryui.Accordion.region(String header)</code> action renders an HTML content section for the clicked header.
 		</p>
-	</form>
 
-	<h3>Client</h3>
-
-	<p>This client implementation uses more JavaScript in <code>autocomplete.js</code> to handle label/value pairs, with
-	an additional hidden field in the form.</p>
-
-	<h3>Server</h3>
-
-	<p>The <code>jqueryui.Autocomplete.value(String term)</code> action renders a JSON-encoded list of label/value pairs
-	that match the user-entered <code>term</code> parameter.</p>
-</section>
+	</section>
 
 
-<section id="datepicker">
-	<h2>Date picker - server-side configuration</h2>
+	<section id="autocomplete">
+		<h2>Autocomplete - label only</h2>
+0
+		<p>Use a label-only <a href="http://jqueryui.com/demos/autocomplete/">autocomplete</a> widget to suggest text values for an
+			input field.</p>
 
-	<p>Although there is no server-side action for the date picker widget, it does require integration with the Play configuration.</p>
+		<p class="demo">
+			<input name="location" class="autocomplete" data-url="@{jqueryui.Autocomplete.label()}"> Type to populate the list,
+			and select a label from the list. </p>
 
-	<div class="demo">	
-	<p>Date: <input class="date"></p>
-	</div>
+		<h3>Client</h3>
 
-	<h3>Client</h3>
+		<p>The <code>autocomplete.js</code> JavaScript applies the jQuery UI autocomplete plug-in to the following label,
+			using the <code>data-url</code> attribute value for the server-side data source.</p>
+		<pre><code>&lt;input name="location" class="autocomplete" data-url="&#64;{jqueryui.Autocomplete.label()}"&gt;</code></pre>
 
-	<p>The <code>datepicker.js</code> JavaScript applies the jQuery UI date picker plug-in to the input element. The date format is specified in the <code>body</code> tag’s <code>data-dateformat</code> attribute and converted from Java to jQuery UI format by the JavaScript.</p>
+		<h3>Server</h3>
+
+		<p>The <code>jqueryui.Autocomplete.label(String term)</code> action renders a JSON-encoded list of strings that match
+			the user-entered <code>term</code> parameter.</p>
+	</section>
+
+
+	<section>
+		<h2>Autocomplete - label and value</h2>
+
+		<p>Use a label/value autocomplete to suggest input options that have a separate label and value.</p>
+
+		<form class="demo">
+			<p>
+				<input name="location.id" class="autocomplete-value" data-url="@{jqueryui.Autocomplete.value()}"> Type to populate
+				the list, then select the value for a particular label. </p>
+
+			<p>
+				<button type="submit">Submit</button>
+				Submit the form to submit the numeric value, but not the label.
+			</p>
+		</form>
+
+		<h3>Client</h3>
+
+		<p>This client implementation uses more JavaScript in <code>autocomplete.js</code> to handle label/value pairs, with
+			an additional hidden field in the form.</p>
+
+		<h3>Server</h3>
+
+		<p>The <code>jqueryui.Autocomplete.value(String term)</code> action renders a JSON-encoded list of label/value pairs
+			that match the user-entered <code>term</code> parameter.</p>
+	</section>
+
+
+	<section id="datepicker">
+		<h2>Date picker - server-side configuration</h2>
+
+		<p>Use a <a href="http://jqueryui.com/demos/datepicker/">date picker</a> to select formatted date values for a text input
+			field. Although there is no server-side action for the date picker widget, it does require integration with the Play
+			configuration.</p>
+
+		<div class="demo">
+		<p>Date: <input class="date"></p>
+		<p>Localisation:
+		#{list play.configuration['application.langs'].split(','), as:'l'}
+			#{if l == lang}<strong>${l}</strong>#{/if}
+			#{else}<a href="@{jqueryui.DatePicker.changeLanguage(l)}">${l}</a>#{/else}
+		#{/list}
+		</p>
+		</div>
+
+		<h3>Server</h3>
+
+		<p>The only server-side code is a call to <code>play.i18n.Lang.change(String lang)</code> to set the current Play
+		language. This value is used in the view template, to set the <code>html</code> tag’s <code>lang</code> attribute,
+		to make the current language setting available to client-side JavaScript.</p>
+
+		<h3>Client</h3>
+
+		<p>The <code>datepicker.js</code> JavaScript applies the jQuery UI date picker plug-in to the input element. The date format
+			is specified in the <code>body</code> tag’s <code>data-dateformat</code> attribute and converted from Java to jQuery UI
+			format by the JavaScript.</p>
 
 	<pre><code>&lt;body data-dateformat="&#36;{play.configuration['date.format']}"&gt;
-…	
-&lt;input class="date"&gt;</code></pre>
+   …
+      &lt;input class="date"&gt;</code></pre>
 
-	<p>TODO: language</p>
-	
-</section>
+		<p>The date picker also provides language localisations, each in a separate JavaScript file. Our JavaScript then selects a localisation according to the value of <code>&#36;{lang}</code>.</p>
+
+	</section>
 
 
-<section id="tabs">
-	<h2>tabs - lazy loading</h2>
+	<section id="tabs">
+		<h2>Tabs - lazy loading</h2>
 
-	<p>Use <a href="http://jqueryui.com/demos/tabs/">tabs</a> to define content sections and lazily load the content when the tab is selected, in the same way as for the accordion.</p>
+		<p>Use <a href="http://jqueryui.com/demos/tabs/">tabs</a> to define content sections and lazily load the content when the
+			tab is selected, in the same way as for the accordion.</p>
 
-	<div class="demo">
-	<div class="tabs">
-     <ul>
-         <li><a href="@{jqueryui.Accordion.region('Africa')}"><span>Africa</span></a></li>
-         <li><a href="@{jqueryui.Accordion.region('America')}"><span>America</span></a></li>
-         <li><a href="@{jqueryui.Accordion.region('Asia')}"><span>Asia</span></a></li>
-         <li><a href="@{jqueryui.Accordion.region('Australia')}"><span>Australia</span></a></li>
-         <li><a href="@{jqueryui.Accordion.region('Europe')}"><span>Europe</span></a></li>
-     </ul>
-	</div>
-	</div>
+		<div class="demo">
+			<div class="tabs">
+				<ul>
+					<li><a href="@{jqueryui.Accordion.region('Africa')}"><span>Africa</span></a></li>
+					<li><a href="@{jqueryui.Accordion.region('America')}"><span>America</span></a></li>
+					<li><a href="@{jqueryui.Accordion.region('Asia')}"><span>Asia</span></a></li>
+					<li><a href="@{jqueryui.Accordion.region('Australia')}"><span>Australia</span></a></li>
+					<li><a href="@{jqueryui.Accordion.region('Europe')}"><span>Europe</span></a></li>
+				</ul>
+			</div>
+		</div>
 
-	<h3>Client</h3>
+		<h3>Client</h3>
 
-	<p>The <code>tabs.js</code> JavaScript applies the jQuery UI tabs plug-in to a list of links to the content. Note that this JavaScript has very little to do, because the tabs plug-in supports Ajax loading out of the box.</p>
+		<p>The <code>tabs.js</code> JavaScript applies the jQuery UI tabs plug-in to a list of links to the content. Note that this
+			JavaScript has very little to do, because the tabs plug-in supports Ajax loading out of the box.</p>
 
 	<pre><code>&lt;div class="tabs"&gt;
-&lt;ul&gt;
-   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Africa')}"&gt;&lt;span&gt;Africa&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('America')}"&gt;&lt;span&gt;America&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Asia')}"&gt;&lt;span&gt;Asia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Australia')}"&gt;&lt;span&gt;Australia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-   &lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Europe')}"&gt;&lt;span&gt;Europe&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</code></pre>
+		&lt;ul&gt;
+		&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Africa')}"&gt;&lt;span&gt;Africa&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('America')}"&gt;&lt;span&gt;America&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Asia')}"&gt;&lt;span&gt;Asia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Australia')}"&gt;&lt;span&gt;Australia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Europe')}"&gt;&lt;span&gt;Europe&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;/div&gt;
+	</code></pre>
 
-	<h3>Server</h3>
+		<h3>Server</h3>
 
-	<p>Tabs use the same <code>jqueryui.Accordion.region(String header)</code> action as the accordion.</p>
+		<p>Tabs use the same <code>jqueryui.Accordion.region(String header)</code> action as the accordion.</p>
 
-</section>
+	</section>
 
 </div>
 </body>

@@ -6,7 +6,7 @@ import play.mvc.Controller;
 public class Application extends Controller {
 
     public static void index() {
-        Demo.index();
+	    Demo.index();
     }
 
 }

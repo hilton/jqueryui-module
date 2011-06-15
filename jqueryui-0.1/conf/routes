@@ -3,10 +3,12 @@
 # *   /				module:jqueryui
 
 GET   /           jqueryui.Demo.index
+
 GET   /label		jqueryui.Autocomplete.label
 GET   /value		jqueryui.Autocomplete.value
 
 GET   /region		jqueryui.Accordion.region
-#GET   /regions		jqueryui.Accordion.regionsTest
+
+GET   /language	   jqueryui.DatePicker.changeLanguage
 
 GET   /public/		staticDir:public
