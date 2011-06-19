@@ -33,4 +33,14 @@ public class TestData {
 		}
 		return result;
 	}
+
+	static List<TimeZone> timeZones() {
+		final List<TimeZone> timeZones = new ArrayList<TimeZone>();
+		for(String id : TimeZone.getAvailableIDs()) {
+			if (id.contains("/") && !id.startsWith("Etc/")) {
+				timeZones.add(TimeZone.getTimeZone(id));
+			}
+		}
+		return timeZones;
+	}
 }

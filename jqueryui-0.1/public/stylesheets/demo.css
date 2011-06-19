@@ -5,4 +5,10 @@ h2 { border-top: 4px solid #E0E0E0; margin-top:1.5em; padding-top:0.5em; }
 .ui-widget-content { font-size: 90%; }
 pre { background-color: ghostWhite; border-left: 4px solid #E0E0E0;
 font-size: 90%; line-height: 1.5em; padding: 0.5em; }
+
 input.date { margin-right:0.5em; }
+
+div.dialog table { font-size:90%; border-collapse:collapse; width:100%; }
+div.dialog tr.odd { background-color:#eee; }
+div.dialog tr:hover td { background-color:#33c; color:white; }
+div.dialog th { text-align:left;  }

@@ -1,0 +1,10 @@
+<table>
+	<tr><th>#</th><th>Time zone</th><th title="UTC offset (minutes)">Offset</th></tr>
+	#{list timeZones, as:'tz'}
+	<tr class="${tz_parity}">
+		<td>${tz_index}</td>
+		<td>${tz.ID}</td>
+		<td>${tz.rawOffset.intdiv(60000)}</td>
+	</tr>
+	#{/list}
+</table>

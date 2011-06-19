@@ -11,8 +11,11 @@ GET   /autocomplete			jqueryui.Autocomplete.index
 GET   /autocomplete/label	jqueryui.Autocomplete.label
 GET   /autocomplete/value	jqueryui.Autocomplete.value
 
-GET   /datepicker		jqueryui.DatePicker.index
-GET   /language	   jqueryui.DatePicker.changeLanguage
+GET   /datepicker					jqueryui.DatePicker.index
+GET   /datepicker/language	   jqueryui.DatePicker.changeLanguage
+
+GET   /dialog					jqueryui.Dialog.index
+GET   /dialog/timezones		jqueryui.Dialog.timeZones
 
 GET   /tabs		jqueryui.Tabs.index
 
