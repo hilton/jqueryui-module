@@ -4,11 +4,16 @@
 
 GET   /           jqueryui.Demo.index
 
-GET   /label		jqueryui.Autocomplete.label
-GET   /value		jqueryui.Autocomplete.value
-
+GET   /accordion  jqueryui.Accordion.index
 GET   /region		jqueryui.Accordion.region
 
+GET   /autocomplete			jqueryui.Autocomplete.index
+GET   /autocomplete/label	jqueryui.Autocomplete.label
+GET   /autocomplete/value	jqueryui.Autocomplete.value
+
+GET   /datepicker		jqueryui.DatePicker.index
 GET   /language	   jqueryui.DatePicker.changeLanguage
+
+GET   /tabs		jqueryui.Tabs.index
 
 GET   /public/		staticDir:public

@@ -1,15 +1,13 @@
 package controllers.jqueryui;
 
 import models.jqueryui.AutocompleteValue;
-import play.Logger;
-import play.mvc.Controller;
 
 import java.util.*;
 
 /**
- * Controller that provides server-side data for a jQuery UI Autocomplete component.
+ * Controller that provides Ajax actions for a jQuery UI Autocomplete component.
  */
-public class Autocomplete extends Controller {
+public class Autocomplete extends JQueryUI {
 
 	/**
 	 * Used to limit the size of auto-complete lists to a reasonable number of results.
@@ -26,7 +24,7 @@ public class Autocomplete extends Controller {
 	public static void label(final String term) {
 		final List<String> response = new ArrayList<String>();
 
-		for (String label : locations()) {
+		for (String label : TestData.locations()) {
 			if (label.toLowerCase().startsWith(term.toLowerCase())) {
 				response.add(label);
 			}
@@ -47,7 +45,7 @@ public class Autocomplete extends Controller {
 	public static void value(final String term) {
 		final List<AutocompleteValue> response = new ArrayList<AutocompleteValue>();
 		int index = 1;
-		for (String label : locations()) {
+		for (String label : TestData.locations()) {
 			final String value = String.valueOf(index);
 			if (label.toLowerCase().startsWith(term.toLowerCase())) {
 				response.add(new AutocompleteValue(value, label));
@@ -60,20 +58,4 @@ public class Autocomplete extends Controller {
 		renderJSON(response);
 	}
 
-	/**
-	 * Autocomplete test data - a list of location names, mostly cities.
-	 */
-	private static List<String> locations() {
-		final List<String> result = new ArrayList<String>();
-		final String[] timeZones = TimeZone.getAvailableIDs();
-		for (int i = 0; i < timeZones.length; i++) {
-			final String[] parts = timeZones[i].split("/");
-			if (parts.length == 2 && parts[1].matches("[A-Za-z_]+")) {
-				final String location = parts[1].replaceAll("_", " ");
-				result.add(location);
-			}
-		}
-		Collections.sort(result);
-		return result;
-	}
 }

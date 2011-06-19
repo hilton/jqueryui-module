@@ -1,0 +1,39 @@
+#{extends 'jqueryui/layout.html'/}
+#{set title:'Tabs'/}
+
+<h2>Tabs - lazy loading</h2>
+
+<p>Use <a href="http://jqueryui.com/demos/tabs/">tabs</a> to define content sections and lazily load the content when the
+	tab is selected, in the same way as for the accordion.</p>
+
+<div class="demo">
+	<div class="tabs">
+		<ul>
+			<li><a href="@{jqueryui.Accordion.region('Africa')}"><span>Africa</span></a></li>
+			<li><a href="@{jqueryui.Accordion.region('America')}"><span>America</span></a></li>
+			<li><a href="@{jqueryui.Accordion.region('Asia')}"><span>Asia</span></a></li>
+			<li><a href="@{jqueryui.Accordion.region('Australia')}"><span>Australia</span></a></li>
+			<li><a href="@{jqueryui.Accordion.region('Europe')}"><span>Europe</span></a></li>
+		</ul>
+	</div>
+</div>
+
+<h3>Client</h3>
+
+<p>The <code>tabs.js</code> JavaScript applies the jQuery UI tabs plug-in to a list of links to the content. Note that this
+	JavaScript has very little to do, because the tabs plug-in supports Ajax loading out of the box.</p>
+
+<pre><code>&lt;div class="tabs"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Africa')}"&gt;&lt;span&gt;Africa&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('America')}"&gt;&lt;span&gt;America&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Asia')}"&gt;&lt;span&gt;Asia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Australia')}"&gt;&lt;span&gt;Australia&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#64;{jqueryui.Accordion.region('Europe')}"&gt;&lt;span&gt;Europe&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>Server</h3>
+
+<p>Tabs use the same <code>jqueryui.Accordion.region(String header)</code> action as the accordion.</p>
