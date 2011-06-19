@@ -17,6 +17,9 @@ GET   /datepicker/language	   jqueryui.DatePicker.changeLanguage
 GET   /dialog					jqueryui.Dialog.index
 GET   /dialog/timezones		jqueryui.Dialog.timeZones
 
+GET   /progressbar				jqueryui.Progressbar.index
+WS    /progressbar/progress	jqueryui.Progressbar.ProgressSocket.progress
+
 GET   /tabs		jqueryui.Tabs.index
 
 GET   /public/		staticDir:public

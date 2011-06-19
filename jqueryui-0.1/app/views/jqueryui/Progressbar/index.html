@@ -1,0 +1,22 @@
+#{extends 'jqueryui/layout.html'/}
+#{set title:'Progress bar'/}
+
+<h2>Progress bar</h2>
+
+<p>Use a <a href="http://jqueryui.com/demos/progressbar/">progress bar</a> to show progress for a server-size process for which the completion percentage can be calculated. Play’s web sockets support is ideal for updating the progress bar, and Play’s asynchronous jobs are suitable for long-running jobs.</p>
+
+<div class="demo">
+<div id="progressbar" data-url="@@{jqueryui.Progressbar.ProgressSocket.progress()}"></div>
+</div>
+
+<h3>Client</h3>
+
+<p>The <code>progressbar.js</code> JavaScript applies the jQuery UI dialog plug-in to the following <code>div</code> element and opens a web socket to the URL given by the <code>data-url</code> attribute value. Note that the template uses the <code>@@</code> syntax to generate an absolute URL that includes the web socket protocol - <code>@@{jqueryui.Progressbar.ProgressSocket.progress()}</code>.</p>
+
+<pre><code>&lt;div id="progressbar" data-url="&#64;&#64;{jqueryui.Progressbar.ProgressSocket.progress()}"&gt&lt;/div&gt;</code></pre>
+
+<p>Finally, the JavaScript uses web socket messages to update the progress bar value.</p>
+
+<h3>Server</h3>
+
+<p>The server is a web socket controller that starts an asynchronous job. This job reports its progress by publishing its completion percentage to an event stream that results in web socket messages to the browser client.</p>

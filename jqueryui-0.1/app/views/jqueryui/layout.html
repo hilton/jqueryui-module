@@ -13,7 +13,7 @@
 	<script src="@{'/public/javascripts/' + request.controllerClass.simpleName.toLowerCase() + '.js'}" type="text/javascript" charset="utf-8"></script>
 	#{/if}
 </head>
-<body data-dateformat="${play.configuration['date.format']}">
+<body class="${request.controllerClass.simpleName.toLowerCase()}" data-dateformat="${play.configuration['date.format']}">
 <div class="wrapper">
 
 <h1><a href="@{jqueryui.Demo.index()}">jQuery UI module demo</a></h1>
