@@ -1,43 +1,37 @@
 #{extends 'jqueryui/layout.html'/}
 #{set title:'Accordion'/}
 
+
 <h2>Accordion - lazy loading</h2>
 
 <p>Use an <a href="http://jqueryui.com/demos/accordion/">accordion</a> to define content sections and lazily load the
-	content when the section is opened.</p>
+content when the section is opened.</p>
 
-<div class="demo">
-	<div class="accordion" data-url="@{jqueryui.Accordion.region('')}">
-		<h3><a href="#">Africa</a></h3>
 
-		<h3><a href="#">America</a></h3>
+<h3>Demo</h3>
 
-		<h3><a href="#">Asia</a></h3>
+#{include 'jqueryui/Accordion/div.html'/}
 
-		<h3><a href="#">Australia</a></h3>
-
-		<h3><a href="#">Europe</a></h3>
-	</div>
-</div>
 
 <h3>Client</h3>
 
-<p>The <code>accordion.js</code> JavaScript applies the jQuery UI accordion plug-in to a DIV that contains headings,
-	using the <code>data-url</code> attribute value for the server-side data source. Note the empty action method
-	parameter value, which generates the query string part of the URL. Also, it would be straightforward to modify
-	<code>accordion.js</code> to use a <code>data-url</code> attribute on each <code>h3</code> element to specify
-	the URL for each section.</p>
+<p>The widget is based on a <code>DIV</code> that contains headings, using the <code>data-url</code> attribute value for the
+server-side data source.</p>
 
-<pre><code>&lt;div class="accordion" data-url="&#64;{jqueryui.Accordion.region('')}"&gt;
-&lt;h3&gt;&lt;a href="#"&gt;Africa&lt;/a&gt;&lt;/h3&gt;
-&lt;h3&gt;&lt;a href="#"&gt;America&lt;/a&gt;&lt;/h3&gt;
-&lt;h3&gt;&lt;a href="#"&gt;Asia&lt;/a&gt;&lt;/h3&gt;
-&lt;h3&gt;&lt;a href="#"&gt;Australia&lt;/a&gt;&lt;/h3&gt;
-&lt;h3&gt;&lt;a href="#"&gt;Europe&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;</code></pre>
+<pre class="prettyprint"><code>#{includeVerbatim 'jqueryui/Accordion/div.html'/}</code></pre>
+
+<p>The <code>accordion.js</code> JavaScript applies the jQuery UI accordion plug-in to this <code>DIV</code>.</p>
+
+<pre class="prettyprint"><code>#{includeVerbatim '/public/javascripts/accordion.js'/}</code></pre>
+
+<p>Note the empty action method parameter value, in the <code>DIV</code> element, which generates the query string part of the URL.
+It would be straightforward to modify <code>accordion.js</code> to use a <code>data-url</code> attribute on each <code>h3</code>
+element to specify the URL for each section.</p>
+
 
 <h3>Server</h3>
 
-<p>The <code>jqueryui.Accordion.region(String header)</code> action renders an HTML content section for the clicked header.
-</p>
+<p>The <code>jqueryui.Accordion.region(String header)</code> action renders an HTML content section for the clicked header, from
+the template <code>region.html</code>, whose output is simply a comma-separated list of region names:</p>
 
+<pre class="prettyprint"><code>#{includeVerbatim 'jqueryui/Accordion/region.html'/}</code></pre>

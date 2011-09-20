@@ -5,16 +5,18 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/playmanual/manual.css'}">
 	<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/jquery-ui-1.8.13.custom.css'}">
-	<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/demo.css'}">
+   <link type="text/css" rel="stylesheet" media="screen" href="@{'/public/stylesheets/prettify.css'}">
+   <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/demo.css'}">
 	<script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
-	<script src="@{'/public/javascripts/jquery-ui-1.8.13.custom.min.js'}" type="text/javascript" charset="utf-8"></script>
-	#{get 'moreScripts'/}
+   <script src="@{'/public/javascripts/jquery-ui-1.8.13.custom.min.js'}" type="text/javascript" charset="utf-8"></script>
+   <script src="@{'/public/javascripts/prettify.js'}" type="text/javascript" charset="utf-8"></script>
+   #{get 'moreScripts'/}
 	#{if request.controller != 'jqueryui.Demo'}
 	<script src="@{'/public/javascripts/' + request.controllerClass.simpleName.toLowerCase() + '.js'}" type="text/javascript" charset="utf-8"></script>
 	#{/if}
 </head>
-<body class="${request.controllerClass.simpleName.toLowerCase()}" data-dateformat="${play.configuration['date.format']}">
-<div class="wrapper">
+<body class="${request.controllerClass.simpleName.toLowerCase()}" data-dateformat="${play.configuration['date.format']}" onload="prettyPrint()">
+<div class="wikistyle wrapper">
 
 <h1><a href="@{jqueryui.Demo.index()}">jQuery UI module demo</a></h1>
 

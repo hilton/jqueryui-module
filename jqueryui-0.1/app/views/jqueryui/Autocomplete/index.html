@@ -1,25 +1,55 @@
 #{extends 'jqueryui/layout.html'/}
 #{set title:'Autocomplete'/}
+#{set 'moreScripts'}
+<script src="@{'/public/javascripts/autocomplete-value.js'}" type="text/javascript" charset="utf-8"></script>
+#{/set}
 
 <h2>Autocomplete - label only</h2>
 
-<p>Use a label-only <a href="http://jqueryui.com/demos/autocomplete/">autocomplete</a> widget to suggest text values for an
-	input field.</p>
+<p>Use a label-only <a href="http://jqueryui.com/demos/autocomplete/">autocomplete</a> widget to suggest text values for an input
+field.</p>
 
-<p class="demo">
-	<input name="location" class="autocomplete" data-url="@{jqueryui.Autocomplete.label()}"> Type to populate the list,
-	and select a label from the list. </p>
+
+<h3>Demo</h3>
+
+<p class="demo"><input name="location" class="autocomplete" data-url="@{jqueryui.Autocomplete.label()}">
+Type to populate the list, and select a label from the list. </p>
+
 
 <h3>Client</h3>
 
-<p>The <code>autocomplete.js</code> JavaScript applies the jQuery UI autocomplete plug-in to the following label,
-	using the <code>data-url</code> attribute value for the server-side data source.</p>
+<p>The widget is based on the the following <code>input</code> element, using the <code>data-url</code> attribute value
+for the server-side data source.</p>
+
 <pre><code>&lt;input name="location" class="autocomplete" data-url="&#64;{jqueryui.Autocomplete.label()}"&gt;</code></pre>
+
+<p>The <code>autocomplete.js</code> JavaScript applies the jQuery UI autocomplete plug-in to the <code>input</code> element.</p>
+
+<pre><code>#{includeVerbatim '/public/javascripts/autocomplete.js'/}</code></pre>
+
 
 <h3>Server</h3>
 
 <p>The <code>jqueryui.Autocomplete.label(String term)</code> action renders a JSON-encoded list of strings that match
 	the user-entered <code>term</code> parameter.</p>
+
+#{set 'label'}
+public static void label(final String term) {
+   final List<String> response = new ArrayList<String>();
+
+   for (String label : TestData.locations()) {
+      if (label.toLowerCase().startsWith(term.toLowerCase())) {
+         response.add(label);
+      }
+      if (response.size() == AUTOCOMPLETE_MAX) {
+         break;
+      }
+   }
+   renderJSON(response);
+}
+#{/set}
+<pre><code>${label}</code></pre>
+
 </section>
 
 
@@ -29,20 +59,20 @@
 <p>Use a label/value autocomplete to suggest input options that have a separate label and value.</p>
 
 <form class="demo">
-	<p>
-		<input name="location.id" class="autocomplete-value" data-url="@{jqueryui.Autocomplete.value()}"> Type to populate
-		the list, then select the value for a particular label. </p>
+	<p><input name="location.id" class="autocomplete-value" data-url="@{jqueryui.Autocomplete.value()}">
+   Type to populate the list, then select the value for a particular label. </p>
 
-	<p>
-		<button type="submit">Submit</button>
-		Submit the form to submit the numeric value, but not the label.
+	<p><button type="submit">Submit</button>
+   Submit the form to submit the numeric value, but not the label.
 	</p>
 </form>
 
 <h3>Client</h3>
 
-<p>This client implementation uses more JavaScript in <code>autocomplete.js</code> to handle label/value pairs, with
+<p>This client implementation uses more JavaScript in <code>autocomplete-value.js</code> to handle label/value pairs, with
 	an additional hidden field in the form.</p>
+
+<pre><code>#{includeVerbatim '/public/javascripts/autocomplete-value.js'/}</code></pre>
 
 <h3>Server</h3>
 
