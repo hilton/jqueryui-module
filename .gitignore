@@ -1,6 +1,6 @@
-.idea
 *.iml
 jqueryui-0.1/.idea
+jqueryui-demo/.idea
 jqueryui-demo/.idea
 jqueryui-demo/lib
 jqueryui-demo/tmp
