@@ -2,7 +2,8 @@ package controllers.jqueryui;
 
 import models.jqueryui.AutocompleteValue;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Controller that provides Ajax actions for a jQuery UI Autocomplete component.

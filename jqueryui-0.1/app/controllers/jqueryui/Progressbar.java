@@ -1,6 +1,5 @@
 package controllers.jqueryui;
 
-import play.Logger;
 import play.jobs.Job;
 import play.libs.F;
 import play.mvc.Http;
@@ -12,7 +11,7 @@ import static play.libs.F.Matcher.ClassOf;
  * Progressbar example.
  */
 public class Progressbar extends JQueryUI {
-	
+
 	/**
 	 * Web socket controller for use by the progress bar.
 	 */

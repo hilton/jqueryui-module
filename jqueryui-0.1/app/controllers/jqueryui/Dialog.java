@@ -1,7 +1,5 @@
 package controllers.jqueryui;
 
-import org.codehaus.groovy.control.StaticImportVisitor;
-
 import java.util.List;
 import java.util.TimeZone;
 

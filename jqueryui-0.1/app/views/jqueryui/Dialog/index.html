@@ -3,24 +3,38 @@
 
 <h2>Dialog</h2>
 
-<p>Use a <a href="http://jqueryui.com/demos/dialog/">dialog</a> (i.e. a dialogue box) to show additional user-interface elements that are not part of the main page. A common use case is to show a ‘selector pop-up’ that provides a richer user-interface for selecting a value than a pick-list. This is especially useful when the dialog contents are lazy-loaded.</p>
+<p>Use a <a href="http://jqueryui.com/demos/dialog/">dialog</a> (i.e. a dialogue box) to show additional user-interface elements that are not part of the main page.
+A common use case is to show a ‘selector pop-up’ that provides a richer user-interface for selecting a value than a pick-list. This is especially useful when the dialog contents are lazy-loaded.</p>
+
+
+<h3>Demo</h3>
 
 <div class="demo">
 <p class="selector">
 	<input name="location">
 	<button data-url="@{jqueryui.Dialog.timeZones()}">Select Time Zone</button>
 </p>
-
 </div>
+
 
 <h3>Client</h3>
 
-<p>The <code>dialog.js</code> JavaScript attaches a click handler the the button in the following view mark-up. This click handler uses the jQuery UI dialog plug-in to open a dialog box, and loads the dialog contents from the resource given by the <code>data-url</code> attribute value, via an Ajax request.</p>
+<p>The widget is based on a text input, and a button that will open the dialog.</p>
 
-<pre><code>&lt;input name="location"&gt;
+<pre class="prettyprint"><code>&lt;input name="location"&gt;
 &lt;button data-url="&#64;{jqueryui.Dialog.timeZones()}"&gt;Select Time Zone&lt;/button&gt;</code></pre>
+
+<p>The <code>dialog.js</code> JavaScript attaches a click handler to the button.
+This click handler uses the jQuery UI dialog plug-in to open a dialog box, and loads the dialog contents from the resource given by the <code>data-url</code> attribute value, via an Ajax request.</p>
+
+<pre class="prettyprint"><code>#{includeVerbatim '/public/javascripts/dialog.js'/}</code></pre>
+
 
 <h3>Server</h3>
 
-<p>The server-side resource that is used to populate the dialog contents is simply a server-side view. A more realistic example might include server-side filtering of a long list, so that the selector can be used to select one of thousands of values.</p>
+<p>The server-side resource that is used to populate the dialog contents is simply a server-side view: the controller renders all of the data as an HTML table.</p>
+
+<pre class="prettyprint"><code>#{includeVerbatim 'jqueryui/Dialog/timezones.html'/}</code></pre>
+
+<p>A more realistic example might include server-side filtering of a long list, so that the selector can be used to select one of thousands of values.</p>
 

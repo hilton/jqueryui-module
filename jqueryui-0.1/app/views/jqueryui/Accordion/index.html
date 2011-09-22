@@ -31,7 +31,11 @@ element to specify the URL for each section.</p>
 
 <h3>Server</h3>
 
-<p>The <code>jqueryui.Accordion.region(String header)</code> action renders an HTML content section for the clicked header, from
+<p>The server-side starts with a trivial controller that simply renders a view for one location..</p>
+
+<pre class="prettyprint"><code>#{includeVerbatim 'app/controllers/jqueryui/Accordion.java'/}</code></pre>
+
+<p>The <code>region(String header)</code> action renders an HTML content section for the clicked header (e.g. ‘Africa’), from
 the template <code>region.html</code>, whose output is simply a comma-separated list of region names:</p>
 
 <pre class="prettyprint"><code>#{includeVerbatim 'jqueryui/Accordion/region.html'/}</code></pre>

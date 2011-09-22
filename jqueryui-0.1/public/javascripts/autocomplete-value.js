@@ -1,15 +1,16 @@
 $(function() {
 
    /*
-    * Autocomplete for selecting an entity instance from the server, which provides a
-    * label (name) and value (id). This approach stores the selection's value in a
-    * hidden input field that is submitted with the form, and puts the selection's
-    * label in the original input field, which is not submitted with the form.
+    * Autocomplete for selecting an entity instance from the server, which
+    * provides a label (name) and value (id). This approach stores the
+    * selection's value in a hidden input field that is submitted with the
+    * form, and puts the selection's label in the original input field, which
+    * is not submitted with the form.
     */
    $('input.autocomplete-value').each( function() {
       var $input = $(this);
 
-      // Create a hidden input with the same form control name to submit the value.
+      // Create a hidden input with the same form control name for the value.
       var controlName = $input.attr('name');
       var $hidden = $('<input type="hidden"/>').attr('name', controlName);
       $input.after($hidden).attr('name', controlName + '_label');
@@ -19,7 +20,7 @@ $(function() {
       $(this).autocomplete({
          source: serverUrl,
          focus: function(event, ui) {
-            // Set the text input value to the focused item's label, instead of the value.
+            // Set the text input value to the focused item's label.
             $input.val(ui.item.label);
             return false;
          },
@@ -36,5 +37,4 @@ $(function() {
    $('form').submit(function() {
       $(this).find('input.autocomplete-value').attr('disabled', 'disabled');
    });
-
 });

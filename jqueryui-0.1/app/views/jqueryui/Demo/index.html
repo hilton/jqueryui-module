@@ -2,10 +2,12 @@
 
 <p>This module provides working examples of <a href="http://jqueryui.com/">jQuery UI</a> widgets, integrated with a Play appliction.</p>
 
-<p>This is not a Play module in the normal sense, providing additional server-side functionality that your application will directly depend on. Instead, this module provides re-usable view template and JavaScript snippets that you can use, as well us sample controller actions for the server-side parts.</p>
+<p>This is not a Play module in the normal sense, providing additional server-side functionality that your application will directly depend on.
+Instead, this module provides re-usable view template and JavaScript snippets that you can use, as well us sample controller actions for the server-side parts.</p>
 
 <h2>jQuery UI widgets</h2>
 
+<p>This module includes code samples for several widgets.</p>
 <ul>
 	<li>
 		<a href="@{jqueryui.Accordion.index()}">Accordion</a>
@@ -33,3 +35,13 @@
 	</li>
 </ul>
 
+<p>In general, each widget requires several separate code snippets:</p>
+
+<ol>
+<li>A view template that contains static undecorated HTML.</li>
+<li>A JavaScript file that uses jQuery to apply the widget to the HTML.</li>
+<li>A controller action that handles Ajax requests from the widget, and either renders an template or directly generates a JSON response.</li>
+<li>A template for the Ajax response, in the case that the controller renders one.</li>
+</ol>
+
+<p>Each of these sections of code is usually very small; you just have to know how to wire them together.</p>

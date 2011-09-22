@@ -21,11 +21,11 @@ Type to populate the list, and select a label from the list. </p>
 <p>The widget is based on the the following <code>input</code> element, using the <code>data-url</code> attribute value
 for the server-side data source.</p>
 
-<pre><code>&lt;input name="location" class="autocomplete" data-url="&#64;{jqueryui.Autocomplete.label()}"&gt;</code></pre>
+<pre class="prettyprint"><code>&lt;input name="location" class="autocomplete" data-url="&#64;{jqueryui.Autocomplete.label()}"&gt;</code></pre>
 
 <p>The <code>autocomplete.js</code> JavaScript applies the jQuery UI autocomplete plug-in to the <code>input</code> element.</p>
 
-<pre><code>#{includeVerbatim '/public/javascripts/autocomplete.js'/}</code></pre>
+<pre class="prettyprint"><code>#{includeVerbatim '/public/javascripts/autocomplete.js'/}</code></pre>
 
 
 <h3>Server</h3>
@@ -48,7 +48,9 @@ public static void label(final String term) {
    renderJSON(response);
 }
 #{/set}
-<pre><code>${label}</code></pre>
+<pre class="prettyprint"><code>${label}</code></pre>
+
+<p>Note that there is no view template, because <code>renderJSON</code> renders a response directly.</p>
 
 </section>
 
@@ -57,6 +59,9 @@ public static void label(final String term) {
 <h2>Autocomplete - label and value</h2>
 
 <p>Use a label/value autocomplete to suggest input options that have a separate label and value.</p>
+
+
+<h3>Demo</h3>
 
 <form class="demo">
 	<p><input name="location.id" class="autocomplete-value" data-url="@{jqueryui.Autocomplete.value()}">
@@ -67,14 +72,35 @@ public static void label(final String term) {
 	</p>
 </form>
 
+
 <h3>Client</h3>
 
-<p>This client implementation uses more JavaScript in <code>autocomplete-value.js</code> to handle label/value pairs, with
-	an additional hidden field in the form.</p>
+<p>This client implementation uses more JavaScript in <code>autocomplete-value.js</code> to handle label/value pairs,
+with an additional hidden field in the form.</p>
 
-<pre><code>#{includeVerbatim '/public/javascripts/autocomplete-value.js'/}</code></pre>
+<pre class="prettyprint"><code>#{includeVerbatim '/public/javascripts/autocomplete-value.js'/}</code></pre>
+
 
 <h3>Server</h3>
 
 <p>The <code>jqueryui.Autocomplete.value(String term)</code> action renders a JSON-encoded list of label/value pairs
-	that match the user-entered <code>term</code> parameter.</p>
+that match the user-entered <code>term</code> parameter.</p>
+
+#{set 'value'}
+public static void value(final String term) {
+   final List<AutocompleteValue> response = new ArrayList<AutocompleteValue>();
+   int index = 1;
+   for (String label : TestData.locations()) {
+      final String value = String.valueOf(index);
+      if (label.toLowerCase().startsWith(term.toLowerCase())) {
+         response.add(new AutocompleteValue(value, label));
+      }
+      if (response.size() == AUTOCOMPLETE_MAX) {
+         break;
+      }
+      index++;
+   }
+   renderJSON(response);
+}
+#{/set}
+<pre class="prettyprint"><code>${value}</code></pre>

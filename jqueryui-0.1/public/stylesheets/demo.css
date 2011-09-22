@@ -1,4 +1,5 @@
 /* Page template */
+.wrapper { width:90%; }
 .demo { background-color: white; padding: 1em; }
 h1 a { text-decoration: none; }
 a:hover { color:blue; text-decoration:underline; }

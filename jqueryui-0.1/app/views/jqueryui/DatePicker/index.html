@@ -5,11 +5,14 @@
 <script src="@{'/public/javascripts/jquery.ui.datepicker-nl.js'}" type="text/javascript" charset="utf-8"></script>
 #{/set}
 
+
 <h2>Date picker - server-side configuration</h2>
 
-<p>Use a <a href="http://jqueryui.com/demos/datepicker/">date picker</a> to select formatted date values for a text input
-	field. Although there is no server-side action for the date picker widget, it does require integration with the Play
-	configuration.</p>
+<p>Use a <a href="http://jqueryui.com/demos/datepicker/">date picker</a> to select formatted date values for a text input field.
+Although there is no server-side action for the date picker widget, it does require integration with the Play configuration.</p>
+
+
+<h3>Demo</h3>
 
 <div class="demo">
 <p>Date: <input class="date"></p>
@@ -21,20 +24,27 @@
 </p>
 </div>
 
-<h3>Server</h3>
-
-<p>The only server-side code is a call to <code>play.i18n.Lang.change(String lang)</code> to set the current Play
-language. This value is used in the view template, to set the <code>html</code> tag’s <code>lang</code> attribute,
-to make the current language setting available to client-side JavaScript.</p>
 
 <h3>Client</h3>
 
-<p>The <code>datepicker.js</code> JavaScript applies the jQuery UI date picker plug-in to the input element. The date format
-	is specified in the <code>body</code> tag’s <code>data-dateformat</code> attribute and converted from Java to jQuery UI
-	format by the JavaScript.</p>
+<p>The widget is based on an HTML <code>input</code> element, with a class name that we will use later to identify it.<p>
 
-<pre><code>&lt;body data-dateformat="&#36;{play.configuration['date.format']}"&gt;
-…
-&lt;input class="date"&gt;</code></pre>
+<pre class="prettyprint"><code>&lt;input class="date"&gt;</code></pre>
+
+<p>The date format is specified in the <code>body</code> tag’s <code>data-dateformat</code> attribute and converted from Java to jQuery UI format by the JavaScript.</p>
+
+<pre class="prettyprint"><code>&lt;body data-dateformat="&#36;{play.configuration['date.format']}"&gt;</code></pre>
+
+<p>The <code>datepicker.js</code> JavaScript converts date formats and applies the jQuery UI date picker plug-in to HTML <code>input</code> elements with the <code>date</code> class.<p>
+
+<pre class="prettyprint"><code>#{includeVerbatim '/public/javascripts/datepicker.js'/}</code></pre>
 
 <p>The date picker also provides language localisations, each in a separate JavaScript file. Our JavaScript then selects a localisation according to the value of <code>&#36;{lang}</code>.</p>
+
+
+<h3>Server</h3>
+
+<p>The only server-side code is a controller action that sets the current Play language. This value is used in the view template, to set the <code>html</code> tag’s <code>lang</code> attribute,
+to make the current language setting available to client-side JavaScript.</p>
+
+<pre class="prettyprint"><code>#{includeVerbatim 'app/controllers/jqueryui/DatePicker.java'/}</code></pre>
