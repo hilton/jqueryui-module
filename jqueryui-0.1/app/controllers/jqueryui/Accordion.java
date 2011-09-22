@@ -17,5 +17,4 @@ public class Accordion extends JQueryUI {
       final Set<String> locations = TestData.regionLocations(header);
       render(locations);
    }
-
 }
