@@ -18,7 +18,8 @@ GET   /dialog					jqueryui.Dialog.index
 GET   /dialog/timezones		jqueryui.Dialog.timeZones
 
 GET   /progressbar				jqueryui.Progressbar.index
-WS    /progressbar/progress	jqueryui.Progressbar.ProgressSocket.progress
+POST  /progressbar				jqueryui.Progressbar.startJob
+WS    /progressbar/progress	jqueryui.ProgressSocket.progress
 
 GET   /tabs		jqueryui.Tabs.index
 
