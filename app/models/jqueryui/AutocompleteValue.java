@@ -1,8 +1,5 @@
 package models.jqueryui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AutocompleteValue {
 
 	private String value;
