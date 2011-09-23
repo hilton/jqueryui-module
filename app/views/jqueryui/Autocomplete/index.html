@@ -75,6 +75,11 @@ public static void label(final String term) {
 
 <h3>Client</h3>
 
+<p>The HTML input is almost the same as the example above, except that the form control name is different, because the submitted value will be an ID value instead of a string label.</p>
+
+<pre class="prettyprint"><code>&lt;input name="location.id" class="autocomplete-value"
+data-url="&#64;{jqueryui.Autocomplete.value()}"&gt;</code></pre>
+
 <p>This client implementation uses more JavaScript in <code>autocomplete-value.js</code> to handle label/value pairs,
 with an additional hidden field in the form.</p>
 
@@ -104,3 +109,5 @@ public static void value(final String term) {
 }
 #{/set}
 <pre class="prettyprint"><code>${value}</code></pre>
+
+<pre class="prettyprint"><code>#{includeVerbatim '/app/models/jqueryui/AutocompleteValue.java'/}</code></pre>
