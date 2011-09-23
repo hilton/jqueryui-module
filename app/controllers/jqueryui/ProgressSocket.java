@@ -1,6 +1,6 @@
 package controllers.jqueryui;
 
-import play.cache.Cache;
+import models.jqueryui.Process;
 import play.libs.F;
 import play.mvc.Http;
 import play.mvc.WebSocketController;
@@ -14,7 +14,7 @@ public class ProgressSocket extends WebSocketController {
 
    public static void progress(final String processId) {
 
-      final models.jqueryui.Process process = (models.jqueryui.Process) Cache.get(processId);
+      final Process process = Process.registry.get(processId);
       final F.EventStream<Integer> progress = process.percentComplete;
 
       // Loop while the socket is open

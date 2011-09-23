@@ -5,11 +5,15 @@ import play.libs.Codec;
 import play.libs.F;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Example job that publishes progress as an event stream.
  */
 public class Process extends Job implements Serializable {
+
+   public static Map<String, Process> registry = new HashMap<String, Process>();
 
    public String id = Codec.UUID();
 

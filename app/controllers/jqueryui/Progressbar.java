@@ -1,7 +1,6 @@
 package controllers.jqueryui;
 
 import models.jqueryui.Process;
-import play.cache.Cache;
 
 /**
  * Progressbar example.
@@ -15,7 +14,7 @@ public class Progressbar extends JQueryUI {
       final Process process = new Process();
       process.now();
       final String processId = process.id;
-      Cache.set(processId, process);
+      Process.registry.put(processId, process);
       renderTemplate("jqueryui/Progressbar/index.html", processId);
    }
 }

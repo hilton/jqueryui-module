@@ -43,12 +43,12 @@ The implementation in this example simply waits for short intervals, publishing 
 
 <pre class="prettyprint"><code>#{includeVerbatim 'app/models/jqueryui/Process.java'/}</code></pre>
 
-<p>The second server-side class is a conventional action that starts an asynchronous long-running job, and caches a reference to the job.
+<p>The second server-side class is a conventional action that starts an asynchronous long-running job, and stores a reference to the job in a ‘registry’ singleton.
 This action then renders the same page with a <code>processId</code> argument that indicates that a job has been started.</p>
 
 <pre class="prettyprint"><code>#{includeVerbatim 'app/controllers/jqueryui/ProgressBar.java'/}</code></pre>
 
-<p>The last part is a is a web socket controller that retrieves the running job from the cache, using its ID, and waits for events on the job’s event stream.
+<p>The last part is a is a web socket controller that retrieves the running job from the registry, using its ID, and waits for events on the job’s event stream.
 When the job publishes a completion percentage to its event stream, the controller sends the data in a web socket message to the browser client.</p>
 
 <pre class="prettyprint"><code>#{includeVerbatim 'app/controllers/jqueryui/ProgressSocket.java'/}</code></pre>
