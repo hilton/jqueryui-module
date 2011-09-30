@@ -1,6 +1,13 @@
 h2. Overview
 
-This module provides working examples of "jQuery UI":http://jqueryui.com/ widgets, integrated with a Play appliction.
+This module provides working examples of "jQuery UI":http://jqueryui.com/ widgets, integrated with a Play appliction. This module includes code samples for several widgets:
+
+* Accordion - collapsible content sections that are loaded via Ajax when opened.
+* Autocomplete - Ajax suggest-while-you-type for form controls.
+* Date picker - date selector pop-up that uses the application date format and language.
+* Dialog - dialogue box that can be used as a selector pop-up for form values.
+* Progressbar - progress indicator that uses web sockets to report a job’s completion percentage.
+* Tabs - content sections that are loaded via Ajax when selected.
 
 This is not a Play module in the normal sense, providing additional server-side functionality that your application will directly depend on. Instead, this module provides re-usable view template and JavaScript snippets that you can use, as well us sample controller actions for the server-side parts.
 
