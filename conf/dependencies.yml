@@ -1,4 +1,4 @@
-self: play -> jqueryui 0.1
+self: play -> jqueryui 1.0
 
 require:
     - play
