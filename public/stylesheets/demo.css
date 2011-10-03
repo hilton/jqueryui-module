@@ -10,6 +10,7 @@ code { font-family: Consolas,Inconsolata,Monaco,monospace; }
 pre { border-left: 4px solid #E0E0E0; padding: 0.5em; }
 pre.prettyprint { border:none; }
 p code { color: #444; border: 1px solid #E0E0E0; padding: 0 0.2em!important; }
+p.note { background: #FFF9D8!important; padding: 10px!important; color: #333!important; border-left: 6px solid #F3E378!important; }
 
 /* Datepicker */
 input.date { margin-right:0.5em; }
