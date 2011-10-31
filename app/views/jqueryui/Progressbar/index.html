@@ -50,7 +50,7 @@ This action then renders the same page with a <code>processId</code> argument th
 
 <pre class="prettyprint"><code>#{includeVerbatim 'app/controllers/jqueryui/Progressbar.java'/}</code></pre>
 
-<p>The last part is a is a web socket controller that retrieves the running job from the registry, using its ID, and waits for events on the job’s event stream.
+<p>The last part is a web socket controller that retrieves the running job from the registry, using its ID, and waits for events on the job’s event stream.
 When the job publishes a completion percentage to its event stream, the controller sends the data in a web socket message to the browser client.</p>
 
 <pre class="prettyprint"><code>#{includeVerbatim 'app/controllers/jqueryui/ProgressSocket.java'/}</code></pre>
