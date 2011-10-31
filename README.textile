@@ -17,7 +17,7 @@ h2. Getting started.
 
 Download the module and run it as a Play application, to browse the examples:
 
-bc. git clone git@github.com:hilton/jqueryui-module.git
+bc. git clone https://github.com/hilton/jqueryui-module.git
 play run jqueryui-module
 open http://localhost:9000/
 
